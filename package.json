@@ -1,5 +1,5 @@
 {
-    "name": "html2jade-site",
+    "name": "iJade",
     "version": "1.0.0",
     "dependencies": {
         "express": ">=2.5.0",
