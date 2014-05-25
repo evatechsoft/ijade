@@ -1,9 +1,9 @@
 var express = require('express'),
-    server = express.createServer(),
+    server = express(),
     pub = __dirname + '/static/',
     views = __dirname + '/views',
     html2jade;
-
+var bodyParser = require('body-parser')
 try {
 	html2jade = require('html2jade');
 } catch (err) {
@@ -11,7 +11,7 @@ try {
 	html2jade = require('./node_modules/html2jade/lib/html2jade')
 }
 
-server.use(express.bodyParser());
+server.use(bodyParser());
 server.use(express.static(pub));
 server.set('view engine', 'jade');
 server.set('views', views);
@@ -25,7 +25,9 @@ server.post('/convert', function (req, res) {
 });
 
 server.get('/', function (req, res) {
-    res.render('index');
+    res.render('index', {pretty:true});
 });
 
-server.listen(process.env.PORT || 3000);
+var ser = server.listen(process.env.PORT || 3000, function(){
+    console.log('Express server listening on port ' + ser.address().port);
+});
