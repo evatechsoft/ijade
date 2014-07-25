@@ -1,9 +1,9 @@
 (function (exports) {
-	'use strict';
+    'use strict';
 
-	exports.convert = function (html, cb) {
-		$.post('/convert', { html: html }, cb);
-	};
+    exports.convert = function (html, cb) {
+        $.post('/convert', { html: html }, cb);
+    };
 
     $('form').submit(function (e) {
         e.preventDefault();
@@ -14,19 +14,18 @@
         exports.convert(html, function (result) {
             if (!/<html>/.test(html)) {
                 result.jade = result.jade
-                                .replace('html\n', '')
-                                .replace(/^\s\s/, '')
-                                .replace(/\n\s\s/, '\n');
+                    .replace('html\n', '')
+                    .replace(/^\s\s/, '')
+                    .replace(/\n\s\s/, '\n');
             }
 
             if (!/<body>/.test(html)) {
                 result.jade = result.jade
-                                .replace(/.*body\n/, '')
-                                .replace(/^\s\s/, '')
-                                .replace(/\n\s\s/, '\n');
-            };
-
-
+                    .replace(/.*body\n/, '')
+                    .replace(/^\s\s/, '')
+                    .replace(/\n\s\s/, '\n');
+            }
+            ;
             form.find('#jade').val(result.jade);
         });
     });

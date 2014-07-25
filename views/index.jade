@@ -1,78 +1,35 @@
 doctype html
 html
     head
-        title
-            | Diff Checker - Online diff tool to compare text to find the difference between two text files
-        meta(name="keywords", content="online diff, diff, diff tool, quick diff, quickdiff, online diff tool, diff checker, gnu diff")
-        meta(name="description", content="Diff Checker is an online diff tool to compare text to find the difference between two text files")
+        title iJade
+        meta(name="keywords", content="iJade")
+        meta(name="description", content="iJade")
         meta(http-equiv="content-type", content="text/html; charset=utf-8")
-        meta(property="fb:admins", content="506766675")
-        meta(property="og:title", content="Diff Checker")
-        meta(property="og:type", content="website")
-        meta(property="og:image", content="http://diffchecker.com/images/fb-image.png")
-        link(rel="stylesheet", type="text/css", href="css/global3.css?t=2")
-        link(rel="stylesheet", href="lib/codemirror.css")
+        link(rel="stylesheet", type="text/css", href="css/global.css?t=2")
     body
         #header
             h1
-                a(href="/") DIFF CHECKER
-            .social-buttons
-                .fb-like(data-href="http://www.diffchecker.com", data-layout="button_count", width="30", data-action="like", data-show-faces="false")
-                br
-                span
-                    g:plusone(size="medium", count="true", href="http://www.diffchecker.com")
+                a(href="/") iJade
             .navigation
                 a.blue_button.home(href="/")
                     span Home
-                a.blue_button.contact(href="contact.php")
+                a.blue_button.contact(href="/contact")
                     span Contact
-                a.blue_button.about(href="about.php")
+                a.blue_button.about(href="/about")
                     span About
-            #description
-                | Diff Checker is an online diff tool to compare text differences between two text files. Enter the contents of two files and click "Find Difference!"
+            #description iJade
         #form-content
-            form(enctype="multipart/form-data", method="post", action="/diff", name="diffform")
+            form(method="post")
                 .original
-                    textarea#file1.lined(name="file1")
-                    span.window_label ORIGINAL TEXT
-                .changed
-                    textarea#file2.lined(name="file2")
-                    span.window_label CHANGED TEXT
-                #find-container
-                    #dropdown-container
-                        select#storage-options(name="storage-options")
-                            option(value="no") Don"t store diff
-                            option(value="hour") Store for 1 hour
-                            option(value="day") Store for 1 day
-                            option(value="month") Store for 1 month
-                            option(value="forever") Store forever
-                    input.blue_button.find_difference(type="submit", value="Find Difference!")
-        script(type="text/javascript", src="lib/codemirror.js")
-        script(type="text/javascript", src="js/main2.js")
-        script(type="text/javascript")
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-8857839-4']);
-            _gaq.push(['_trackPageview']);
-            (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-        #fb-root
-        script
-            (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=156576611081626";
-            fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        script
-            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-        script(type="text/javascript")
-            (function() {
-            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-            po.src = 'https://apis.google.com/js/platform.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-            })();
-              
+                    textarea.lined(name="html" id="html")
+                    span.window_label HTML
+                .changed                                                                         textarea.lined(name="jade" id="jade")
+            span.window_label JADE
+        #find-container
+            button.blue_button.find_difference(type="submit", value="Convert") Convert
+        #header
+            h1
+                a(href="/")
+            #description Experiment By Chandan. Inspired by 'html2jade'
+        script(type="text/javascript", src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+        script(type="text/javascript", src="/app.js")
