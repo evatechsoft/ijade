@@ -1,6 +1,9 @@
 {
     "name": "iJade",
     "version": "1.0.0",
+    "scripts": {
+        "start": "node web.js"
+     },
     "dependencies": {
         "express": "latest",
         "jade": "latest",
